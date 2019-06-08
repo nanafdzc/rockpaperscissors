@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title> Rock, Paper, Scissors </title>
 </head>
+
 <body>
     <script>
-    
+        
+        //Random computer play
         function computerPlay() {
            let random = (Math.floor(Math.random() * 3) + 1);
 
@@ -18,8 +21,23 @@
            } else {
                return("Paper");
            }
-        }
+        } 
 
+        //Computer vs Player Round
+        const computerSelection = computerPlay();
+        let playerSelection = prompt("Rock, Paper or Scissors?");
+        
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == "Paper" && computerSelection == "Rock") {
+                console.log("You lose! Paper beats Rock");
+            } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+                console.log("You lose! Rock beats Scissors");
+            } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+                console.log("You lose! Scissors beats Paper");
+            }
+
+        }
+       
 
     </script>
 </body>
