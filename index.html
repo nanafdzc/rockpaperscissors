@@ -29,11 +29,15 @@
         
         function playRound(playerSelection, computerSelection) {
             if (playerSelection == "Paper" && computerSelection == "Rock") {
-                console.log("You lose! Paper beats Rock");
+                console.log("You win! Paper beats Rock");
             } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-                console.log("You lose! Rock beats Scissors");
+                console.log("You win! Rock beats Scissors");
             } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-                console.log("You lose! Scissors beats Paper");
+                console.log("You win! Scissors beats Paper");
+            } else if (playerSelection == computerSelection) { 
+                console.log("It's a tie!")
+            } else {
+                console.log("You lose! " + computerSelection + " beats " + playerSelection );
             }
 
         }
