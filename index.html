@@ -25,7 +25,16 @@
 
         //Computer vs Player Round
         const computerSelection = computerPlay();
-        let playerSelection = prompt("Rock, Paper or Scissors?");
+        let selection = prompt("Rock, Paper or Scissors?");
+        let playerSelection = capitalize(selection);
+
+        function capitalize() {
+        let lowercase = selection.toLowerCase();
+        let capital = lowercase.charAt(0).toUpperCase();
+        let result = capital + lowercase.slice(1);
+        return(result)
+         }
+        
         
         function playRound(playerSelection, computerSelection) {
             if (playerSelection == "Paper" && computerSelection == "Rock") {
