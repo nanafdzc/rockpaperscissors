@@ -4,83 +4,85 @@
             let random = (Math.floor(Math.random() * 3) + 1);
  
             if (random == 1) {
-                return("Rock");
+                return("rock");
  
             } else if (random == 2) {
-                    return("Scissors");
+                    return("scissors");
                
             } else {
-                return("Paper");
+                return("paper");
             }
          } 
  
          //Computer vs Player Round
-         const computerSelection = computerPlay();
-         let selection = prompt("Rock, Paper or Scissors?");
-         let playerSelection = capitalize(selection);
- 
-         //Case insensitive
-         function capitalize() {
-         let lowercase = selection.toLowerCase();
-         let capital = lowercase.charAt(0).toUpperCase();
-         let result = capital + lowercase.slice(1);
-         return(result)
-          }
-         
+        
          
          function playRound(playerSelection, computerSelection) {
-             if (playerSelection == "Paper" && computerSelection == "Rock") {
-                 console.log("You win! Paper beats Rock");
+
+             if (playerSelection == "paper" && computerSelection == "rock") {
+                 return("You win! paper beats rock");
  
-             } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-                 console.log("You win! Rock beats Scissors");
+             } else if (playerSelection == "rock" && computerSelection == "scissors") {
+                 return "You win! rock beats scissors";
  
-             } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-                 console.log("You win! Scissors beats Paper");
+             } else if (playerSelection == "scissors" && computerSelection == "paper") {
+                 return "You win! scissors beats paper";
  
              } else if (playerSelection == computerSelection) { 
-                 console.log("It's a tie!")
+                 return "It's a tie!";
  
              } else {
-                 console.log("You lose! " + computerSelection + " beats " + playerSelection );
+                 return "You lose! " + computerSelection + " beats " + playerSelection;
              }
  
          }
+
+         let computerSelection 
+         let playerSelection
+         let playerScore = 0;
+         let computerScore = 0;
         
         //Game round
- 
-         let computerScore 
-         let playerScore
- 
+
          function score(playerSelection, computerSelection) {
-             if (playerSelection == "Paper" && computerSelection == "Rock") {
-                  playerScore = 1; 
-                  computerScore = 0;
+            
+             if (playerSelection == "paper" && computerSelection == "rock") {
+                  playerScore++;
+                
+             } else if (playerSelection == "rock" && computerSelection == "scissors") {
+                 playerScore++;
  
-             } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-                 playerScore = 1;
-                 computerScore = 0;
- 
-             } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-                 playerScore = 1;
-                 computerScore = 0;
+             } else if (playerSelection == "scissors" && computerSelection == "paper") {
+                 playerScore++;
  
              } else if (playerSelection == computerSelection) { 
-                 playerScore = 1;
-                 computerScore = 1;
+                 
  
              } else {
-                 playerScore = 0;
-                 computerScore = 1;
-             }
-             console.log(' Player : ' + playerScore + ' Computer : ' + computerScore);
+                 computerScore++;
+             }         
+                return (' Player : ' + playerScore + ' Computer : ' + computerScore);
+                
          }
+
  
-         
+            // Five rounds game
+
          function game() {
-             return playRound(playerSelection, computerSelection);
-             return score(playerSelection, computerSelection);
+
+            for (let i = 0; i < 5; i++) {
+                    let selection = prompt("Rock, Paper, or Scissors?");
+                    let playerSelection = selection.toLowerCase();
+                    let computerSelection = computerPlay();
+                   
+                    console.log(playRound(playerSelection, computerSelection));
+                    console.log(score(playerSelection, computerSelection));
+            }
              
- 
-         }
- 
+             if (playerScore > computerScore) {
+                 return ("You win! WOOOHOO!")
+             } else {
+                 return ("BOOHOO! You are a loser!")
+             }
+
+            }
